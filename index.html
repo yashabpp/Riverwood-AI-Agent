@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Riverwood AI Voice Agent - Your intelligent real estate assistant for Riverwood Estate, Kharkhauda">
+    <title>Riverwood AI Voice Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Start Call Overlay -->
+    <div class="start-overlay" id="startOverlay">
+        <div class="overlay-content glass-card">
+            <div class="agent-avatar">🏡</div>
+            <h2>Stella is calling...</h2>
+            <p>Riverwood Projects LLP</p>
+            <button class="answer-btn" id="startBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Answer Call
+            </button>
+        </div>
+    </div>
+
+    <!-- Animated background particles -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo-mark">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <rect x="2" y="2" width="32" height="32" rx="8" stroke="url(#logoGrad)" stroke-width="2.5"/>
+                        <path d="M10 26V14L18 10L26 14V26" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 26V18H22V26" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="18" y1="18" x2="18" y2="22" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="2" y1="2" x2="34" y2="34">
+                                <stop stop-color="#34d399"/>
+                                <stop offset="1" stop-color="#fbbf24"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="header-text">
+                    <h1>Riverwood</h1>
+                    <span class="header-subtitle">AI Voice Agent</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="mute-btn" id="muteBtn" title="Mute/Unmute">
+                    <svg id="muteIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                </button>
+                <div class="lang-toggle" id="langToggle" title="Switch Language">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="hi">हिं</button>
+                </div>
+                <div class="call-status" id="callStatus">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Active Call</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar: Project Info -->
+            <aside class="sidebar">
+                <div class="info-card glass-card">
+                    <h3>🏗️ Construction Progress</h3>
+                    <div class="progress-items">
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Boundary Wall</span>
+                                <span class="progress-pct">100%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Road Network</span>
+                                <span class="progress-pct">85%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Water Supply</span>
+                                <span class="progress-pct">70%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Electricity Grid</span>
+                                <span class="progress-pct">60%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Landscaping</span>
+                                <span class="progress-pct">40%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card glass-card">
+                    <h3>📍 Project Highlights</h3>
+                    <ul class="highlights-list">
+                        <li>25-Acre Plotted Township</li>
+                        <li>Sector 7, Kharkhauda, Haryana</li>
+                        <li>DDJAY Approved</li>
+                        <li>Near IMT Kharkhauda (Maruti Suzuki)</li>
+                        <li>Plots from 50 to 200 sq. yards</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Chat Area -->
+            <section class="chat-section">
+                <div class="chat-container glass-card" id="chatContainer">
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Messages are injected here -->
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <div class="input-wrapper glass-card">
+                        <input 
+                            type="text" 
+                            id="textInput" 
+                            placeholder="Type your message..." 
+                            autocomplete="off"
+                        />
+                        <button class="send-btn" id="sendBtn" title="Send Message">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mic-container">
+                        <button class="mic-btn" id="micBtn" title="Hold to Speak">
+                            <div class="mic-ripple" id="micRipple"></div>
+                            <canvas id="audioVisualizer" class="audio-visualizer"></canvas>
+                            <svg class="mic-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                            <span class="mic-label" id="micLabel">Tap to Speak</span>
+                        </button>
+                        <div class="volume-monitor" id="volumeMonitor">
+                            <div class="volume-fill" id="volumeFill"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Debug Console (Hidden by default) -->
+    <div id="debugConsole" class="debug-console hidden">
+        <div class="debug-header">
+            <span>Debug Logs</span>
+            <button id="closeDebug">×</button>
+        </div>
+        <div id="debugLogs" class="debug-logs"></div>
+    </div>
+
+    <script src="new_app.js"></script>
+</body>
+</html>
