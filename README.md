@@ -45,18 +45,6 @@ To handle 1000 calls every morning (e.g., between 9 AM and 10 AM), we would use 
     - **LLM**: Llama 3.3 70B on Groq (ultra-low latency).
     - **TTS**: Deepgram Aura (high-speed, natural sounding voices).
 
-### Estimated Cost per 1000 Calls
-
-| Service | Cost Component | Estimate |
-| :--- | :--- | :--- |
-| **Twilio** | ₹1.2/min (2 min avg call) | ₹2,400 |
-| **Groq (LLM)** | ₹0.05/1K tokens | ₹100 |
-| **Deepgram (TTS)** | ₹0.10/1K chars | ₹600 |
-| **Infrastructure** | AWS Lambda/ECS | ₹500 |
-| **Total** | | **~₹3,600 ($43)** |
-
----
-
 ## How to Run
 
 1.  Clone this repository.
